@@ -1,0 +1,50 @@
+﻿@model IEnumerable<VariableSoft.Models.UserProfile>
+
+@{
+    ViewBag.Title = "User List";
+}
+
+<h2>User's List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "adduser")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserFullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mobile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CityName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserFullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CityName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "adduser", new { UserId = item.UserId })
+            </td>
+        </tr>
+    }
+
+</table>
